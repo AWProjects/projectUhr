@@ -4,19 +4,19 @@ var projectUhr = {};
 var $location1 = $('#location1');
 
 //Variables
-var query1 = 'Paris';
+var query1;
 var query2; 
 var query3; 
 var query4;
 
 //Offsets for each location
-var offset1;
-var offset2;
-var offset3;
-var offset4;
+var timeZone1;
+var timeZone2;
+var timeZone3;
+var timeZone4;
 
 //Store Lat and Lng results as object in a variable
-var queryResults;
+projectUhr.queryResults;
 
 var timezoneResult;
 
@@ -38,13 +38,23 @@ projectUhr.init = function() {
 		currentDateinSeconds = moment()/1000;
 	}
 
-	//hit enter to input
-	// $('.input').keypress(function (e) {
-	//   if (e.which == 13) {
-	//     $('form.location1').submit();
-	//     return false;    //<---- Add this line
-	//   }
+	// hit enter to input
+	$('.location').keypress(function (e) {
+	  if (e.which == 13) {
+	    $location1.submit();
+	    query1 = $('#location1').val();
+	    projectUhr.getLocation(query1);
+	    return false;    //<---- Add this line
+	  }
+	});
+
+	// $location1.on('submit', function(e){
+	// 	e.preventDefault();
+	// 	projectUhr.getLocation(query1);
+	// 	console.log('submitted!');		
 	// });
+	
+
 	
 };
 
@@ -89,8 +99,8 @@ projectUhr.getTimezone = function(searchForLocation,searchforTime) {
 		success: function(response){
 			//view query results	
 			console.log(response);
-			var offset1 = response.rawOffset;
-			console.log(offset1);
+			var timeZone1 = response.timeZoneId;
+			console.log(timeZone1);
 		}
 
 	});
@@ -115,14 +125,13 @@ projectUhr.displayCurrentTime = function(searchForThis) {
 
 //----------------------------------------------------------------
 //on submit, run the queries 
-projectUhr.runQuery = function(submitThisForm) {
+projectUhr.runQuery = function() {
 
-	submitThisForm.submit(function(){
-		projectUhr.getLocation($location1.val());
-		console.log('submitted!');			
-	});
+	// $location1.on('change', function(){
+	// 	projectUhr.getLocation($location1.val());
+	// 	console.log('submitted!');			
+	// });
 };
-
 
 
 //Run projectUhr
