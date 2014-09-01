@@ -115,7 +115,7 @@ projectUhr.displayCurrentTime = function(searchForThis) {
 
 //----------------------------------------------------------------
 //on submit, run the queries 
-projectUhr.runQuery = function(submitThisForm,queryThisValue) {
+projectUhr.runQuery = function(submitThisForm) {
 
 	submitThisForm.submit(function(){
 		projectUhr.getLocation($location1.val());
