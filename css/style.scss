@@ -29,3 +29,6 @@ $darkgrey: #222;
 body {
 	@include fontify(16px,300);
 }
+h1 {
+	@include fontify(24px, 500);
+}
