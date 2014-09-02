@@ -7,11 +7,7 @@ var $location3 = $('#location3');
 var $location4 = $('#location4');
 
 //Variables
-var query1;
-var query2; 
-var query3; 
-var query4;
-
+var queries = ['','','',''];
 //Store Timezone names for each location
 var timeZone1;
 var timeZone2;
@@ -114,39 +110,13 @@ projectUhr.displayCurrentTime = function(searchForThis) {
 //on submit, run the queries 
 projectUhr.runQuery = function() {
 	// hit enter to input (one for each)
-	$(location1).keypress(function (e) {
+	$(document).on('keypress','.location',function (e) {
+		$(this).parents('.quad').css('background','red');
 	  if (e.which == 13) {
-	    $location1.submit();
-	    query1 = $('#location1').val();
-	    projectUhr.getLocation(query1);
+	    $(this).submit();
+	    queries[$(this).attr('data-id')-1] = $(this).val();
+	    projectUhr.getLocation(queries[$(this).attr('data-id')-1]);
 	    return false;   
-	  }
-	});
-	
-	$(location2).keypress(function (e) {
-	  if (e.which == 13) {
-	    $location2.submit();
-	    query2 = $('#location2').val();
-	    projectUhr.getLocation(query2);
-	    return false;
-	  }
-	});
-
-	$(location3).keypress(function (e) {
-	  if (e.which == 13) {
-	    $location3.submit();
-	    query3 = $('#location3').val();
-	    projectUhr.getLocation(query3);
-	    return false;
-	  }
-	});
-
-	$(location4).keypress(function (e) {
-	  if (e.which == 13) {
-	    $location4.submit();
-	    query4 = $('#location4').val();
-	    projectUhr.getLocation(query4);
-	    return false;
 	  }
 	});
 };
