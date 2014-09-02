@@ -9,6 +9,7 @@
 // --------------------------------------------------------
 
 $darkgrey: #222;
+$outline: #BDCCD4;
 
 // --------------------------------------------------------
 // MIXINS
@@ -29,6 +30,82 @@ $darkgrey: #222;
 body {
 	@include fontify(16px,300);
 }
+body,
+html {
+	height: 95%;
+	width: 90%;
+	margin: auto 5%;
+}
 h1 {
 	@include fontify(24px, 500);
+}
+
+
+// --------------------------------------------------------
+// QUADRANT STYLES
+// --------------------------------------------------------
+
+.quad {
+	float:left;
+	width: 49%;
+	height: 49%;
+	margin: .5%;
+	border: 1px solid $outline;
+	background:url(../images/city-outline.png) bottom;
+	background-repeat: repeat-x;
+	background-size: 70%;
+	padding: 2%;
+}
+
+// .searchBar {
+// 	position: relative;
+// }
+
+form {
+	text-align: center;
+	// position: relative;
+	// z-index: 10;
+	// left:28%;
+}
+input {
+	border:1px solid $outline;
+	border-radius: 50px;
+	padding: 5px 15px;
+	&:focus {
+		outline:none;
+		border-color:darken($outline,20);
+	}
+	&::-webkit-input-placeholder {
+		font-weight:100;
+		color:lighten($outline,10);
+	}
+}
+[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+// .search {
+// 	position: absolute;
+// 	z-index:20;
+// 	left:70%;
+// 	top:10%
+// }
+
+
+.clock {
+	margin: 5% auto 2%;
+	width: 50%;
+	height: 40%;
+	background-color: $outline;
+	border-radius:10px;
+	// border-left: 10px solid darken($outline,50);
+	// border-top: 10px solid darken($outline,20);
+	// border-right: 10px solid $outline;
+	// border-bottom: 10px solid lighten($outline,20);
+}
+
+.city {
+	margin: 2% auto;
+	width: 50%;
+	height: 10%;
+	background-color: $outline;
 }

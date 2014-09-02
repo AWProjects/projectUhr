@@ -9,21 +9,29 @@ head
 	link(href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
 body
 	h1 project Uhr
-	form(id="panel1")
-		input(type="text" id="location1" class="location")
-		//- input(type="submit" value="submit" class="input")
+	section#quad1.quad
+		div.searchBar
+			//- span.search
+			//- 	i.fa.fa-search
+			form(id="panel1" class="locationForm")
+				input(type="text" id="location1" class="location" placeholder="Enter a location")
+			//- input(type="submit" value="submit" class="input")
+		div#clock1.clock
+		div.city
 
-	form(class="panel2")
-		input(type="text" id="location2" class="location")
-		//- input(type="submit" value="submit" class="input")
+	section#quad2.quad
+		form(id="panel2" class="locationForm")
+			input(type="text" id="location2" class="location")
+			//- input(type="submit" value="submit" class="input")
 
-	form(class="panel3")
-		input(type="text" id="location3" class="location")
-		//- input(type="submit" value="submit" class="input")
-
-	form(class="panel4")
-		input(type="text" id="location4" class="location")
-		//- input(type="submit" value="submit" class="input")
+	section#quad3.quad
+		form(id="panel3" class="locationForm")
+			input(type="text" id="location3" class="location")
+			//- input(type="submit" value="submit" class="input")
+	section#quad4.quad
+		form(id="panel4" class="locationForm")
+			input(type="text" id="location4" class="location")
+			//- input(type="submit" value="submit" class="input")
 
 
 	script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
